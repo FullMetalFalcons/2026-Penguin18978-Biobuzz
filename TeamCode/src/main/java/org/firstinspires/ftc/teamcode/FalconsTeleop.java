@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
@@ -21,20 +22,20 @@ public class FalconsTeleop extends OpMode {
         // Set up drive motors
         // The names for each motor are taken from the driveConstants in the Constants file
         // TODO: Update "Constants" with the names of your drive motors from the driver station configuration file
-        motorLF = (DcMotorEx) hardwareMap.dcMotor.get( Constants.drivetrainConfig.frontLeftName.get() );
-        motorLB = (DcMotorEx) hardwareMap.dcMotor.get( Constants.drivetrainConfig.backLeftName.get() );
-        motorRF = (DcMotorEx) hardwareMap.dcMotor.get( Constants.drivetrainConfig.frontRightName.get() );
-        motorRB = (DcMotorEx) hardwareMap.dcMotor.get( Constants.drivetrainConfig.backRightName.get() );
+        motorLF = (DcMotorEx) hardwareMap.dcMotor.get( "leftFront" );
+        motorLB = (DcMotorEx) hardwareMap.dcMotor.get( "leftBack" );
+        motorRF = (DcMotorEx) hardwareMap.dcMotor.get( "rightFront" );
+        motorRB = (DcMotorEx) hardwareMap.dcMotor.get( "rightBack" );
 
         // Use the following line as a template for defining new servos
         //claw = (Servo) hardwareMap.servo.get("claw");
 
         // Reverse certain drive motors so that positive power to all motors makes the robot move forwards
         // TODO: Update "Constants" with the proper directions of your drive motors
-        motorLF.setDirection( Constants.drivetrainConfig.frontLeftDirection.get() );
-        motorLB.setDirection( Constants.drivetrainConfig.backLeftDirection.get() );
-        motorRF.setDirection( Constants.drivetrainConfig.frontRightDirection.get() );
-        motorRB.setDirection( Constants.drivetrainConfig.backRightDirection.get() );
+        motorLF.setDirection( DcMotorSimple.Direction.FORWARD);
+        motorLB.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorRF.setDirection( DcMotorSimple.Direction.REVERSE );
+        motorRB.setDirection( DcMotorSimple.Direction.REVERSE );
 
         // This resets the encoder values when the code is initialized
         motorLF.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
