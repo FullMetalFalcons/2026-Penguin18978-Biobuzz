@@ -32,10 +32,10 @@ public class FalconsTeleop extends OpMode {
 
         // Reverse certain drive motors so that positive power to all motors makes the robot move forwards
         // TODO: Update "Constants" with the proper directions of your drive motors
-        motorLF.setDirection( DcMotorSimple.Direction.FORWARD);
-        motorLB.setDirection(DcMotorSimple.Direction.FORWARD);
-        motorRF.setDirection( DcMotorSimple.Direction.REVERSE );
-        motorRB.setDirection( DcMotorSimple.Direction.REVERSE );
+        motorLF.setDirection( DcMotorSimple.Direction.REVERSE);
+        motorLB.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorRF.setDirection( DcMotorSimple.Direction.FORWARD );
+        motorRB.setDirection( DcMotorSimple.Direction.FORWARD );
 
         // This resets the encoder values when the code is initialized
         motorLF.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
